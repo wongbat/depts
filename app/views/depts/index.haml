@@ -3,5 +3,8 @@
 - @depts.each do |d|
   %li= d.name
 
-%p= link_to "add new", {:action => 'new' }
+  %p= link_to 'edit', @dept, :method => :get
+  %p= link_to 'destroy', :method => :delete, :data => { :confirm => 'Really?!?' }
+
+%p= link_to "ADD NEW", { :action => 'new' }
     

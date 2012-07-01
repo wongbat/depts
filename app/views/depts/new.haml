@@ -1,11 +1,5 @@
 %h2= "Add a new department"
 
-%form{ :action => 'create' }
-  %fieldset
-    %ol
-      %li
-        %label{:for => "name"} Name
-        %input{:type => "text", :name => "name", :class => "text"}
-        %input{:type => "submit", :value => "add", :class => "button"}
+%p= render 'form'
 
-%p= link_to "back", {:action => 'index' }
+%p= link_to "back", {:action => 'index'}
