@@ -1,3 +1,7 @@
-%ul
-  - @depts.each do |dept|
-    %li= dept.name
+%h1= "DEPARTMENTS"
+
+- @depts.each do |d|
+  %li= d.name
+
+%p= link_to "add new", {:action => 'new' }
+    
