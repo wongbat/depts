@@ -1,7 +1,9 @@
 Depts::Application.routes.draw do
 
-  resources :depts
-  resources :members
+  resources :depts, :members
+  resources :depts do
+    resources :members
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

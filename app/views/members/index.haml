@@ -1,0 +1,8 @@
+%h1 Members
+
+%ol
+  - @members.each do |m|
+    %li= m.name
+    %p= link_to 'edit', edit_dept_member_path(@dept, m)
+    %p= link_to 'delete member!', [@dept, m], :method => :delete, :name => { :confirm => 'Are you sure?' }
+    %p= link_to "add member", new_dept_member_path(@dept)

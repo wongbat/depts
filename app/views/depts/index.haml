@@ -1,10 +1,9 @@
-%h1= "DEPARTMENTS"
+%h1 DEPARTMENTS
 
-- @depts.each do |d|
-  %li= d.name
-
-  %p= link_to 'edit', @dept, :method => :get
-  %p= link_to 'destroy', :method => :delete, :data => { :confirm => 'Really?!?' }
-
-%p= link_to "ADD NEW", { :action => 'new' }
+%ol
+  - @depts.each do |d|
+    %li= link_to d.name
+    %p= link_to 'edit', edit_dept_path(d)
+    %p= link_to 'get rid!', d, :method => :delete, :name => { :confirm => 'Are you sure?' }
+    %p= link_to "add new", new_dept_path
     

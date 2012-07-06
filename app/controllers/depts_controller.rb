@@ -19,7 +19,7 @@ class DeptsController < ApplicationController
   end
 
   def new
-    @dept = Dept.new
+    @dept = Dept.new(params[:name])
 
     respond_to do |format|
       format.html
@@ -28,13 +28,12 @@ class DeptsController < ApplicationController
   end
 
   def create
-    @dept = Dept.new(params[:id])
+    @dept.new(params[:dept])
 
     respond_to do |format|
-      if @dept.save(params[:id])
+      if @dept.save
          format.html { redirect_to :action => 'index' }
          format.json { render :json => @dept }
-
       else
          format.html { render :action => 'new' }
          format.json { render :json => @dept }
@@ -50,8 +49,8 @@ class DeptsController < ApplicationController
     @dept = Dept.find(params[:id])
 
     respond_to do |format|
-      if @dept.update_attributes(params[:id])
-         format.html { redirect_to :action => 'show', :id => @dept }
+      if @dept.update_attributes(params[:dept])
+         format.html { redirect_to :action => 'index'}#, :id => @dept }
          format.json { render :json => @dept }
 
       else

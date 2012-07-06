@@ -1,0 +1,20 @@
+= form_for[@dept, @member] do |f|
+  - if @member.errors.any?
+    #error_explanation
+      %h2= pluralize(@member.errors.count, "error"), dept_members_path(@dept)
+      prohibited this from being saved:
+
+      %ul
+      - @member.errors.full_messages.each do |msg|
+        %li
+          error
+          = msg
+
+  .field
+    = f.label :Name
+    = f.text_field :name
+    = f.label :Surname
+    = f.text_field :surname
+
+  .actions
+    = f.submit "go"
